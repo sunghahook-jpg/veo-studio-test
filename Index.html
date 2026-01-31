@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veo Studio – Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#000000" />
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: none;
+      background: #6366f1;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Veo Studio – Test</h1>
+    <p>App uji coba pribadi</p>
+    <button onclick="alert('App berjalan')">Tes App</button>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
