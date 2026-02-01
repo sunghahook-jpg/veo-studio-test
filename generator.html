@@ -14,20 +14,24 @@
       padding: 20px;
     }
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
-    textarea {
+    label {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    input, textarea, select {
       width: 100%;
-      height: 120px;
       background: #111;
       color: #fff;
       border: 1px solid #333;
       border-radius: 8px;
       padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 14px;
       font-size: 14px;
     }
     button {
-      margin-top: 15px;
       width: 100%;
       padding: 14px;
       font-size: 16px;
@@ -36,20 +40,95 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      background: #0b0b0b;
+      border: 1px solid #333;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>🎥 Veo Generator</h1>
-  <p>Tulis prompt video:</p>
+  <h1>🎬 Veo Prompt Generator</h1>
+  <p style="opacity:.7;">Buat prompt video siap pakai</p>
 
-  <textarea placeholder="Contoh: karakter berjalan pelan di lorong gelap, cinematic lighting..."></textarea>
+  <label>SUBJECT</label>
+  <input id="subject" placeholder="Contoh: pria botak berdiri diam">
 
-  <button onclick="alert('Generator siap! (simulasi)')">
-    Generate Video
+  <label>ACTION</label>
+  <input id="action" placeholder="Contoh: berjalan pelan ke arah kamera">
+
+  <label>ENVIRONMENT</label>
+  <input id="environment" placeholder="Contoh: lorong gelap, cinematic lighting">
+
+  <label>STYLE</label>
+  <select id="style">
+    <option>Cinematic 4K</option>
+    <option>Photorealistic</option>
+    <option>Anime Style</option>
+    <option>3D Animation</option>
+    <option>Stop Motion</option>
+  </select>
+
+  <label>CAMERA</label>
+  <select id="camera">
+    <option>Static</option>
+    <option>Slow Zoom In</option>
+    <option>Dolly Forward</option>
+    <option>Tracking Shot</option>
+  </select>
+
+  <button onclick="generatePrompt()">Generate Prompt</button>
+
+  <div id="output" class="result" style="display:none;"></div>
+
+  <button id="copyBtn" onclick="copyPrompt()" style="display:none;">
+    Copy Prompt
   </button>
+
+  <script>
+    function generatePrompt() {
+      const subject = document.getElementById('subject').value || 'A mysterious character';
+      const action = document.getElementById('action').value || 'standing still with subtle motion';
+      const environment = document.getElementById('environment').value || 'cinematic background';
+      const style = document.getElementById('style').value;
+      const camera = document.getElementById('camera').value;
+
+      const prompt = 
+`STYLE: ${style}
+
+SUBJECT: ${subject}
+
+ACTION: ${action}
+
+ENVIRONMENT: ${environment}
+
+CAMERA: ${camera}, stable cinematic framing
+
+MOTION RULES: smooth natural motion, no distortion, no jitter
+
+DURATION: 5–7 seconds
+
+QUALITY: Veo 3.1, high detail, cinematic lighting`;
+
+      document.getElementById('output').style.display = 'block';
+      document.getElementById('copyBtn').style.display = 'block';
+      document.getElementById('output').innerText = prompt;
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById('output').innerText;
+      navigator.clipboard.writeText(text);
+      alert('Prompt berhasil disalin');
+    }
+  </script>
 
 </body>
 </html>
