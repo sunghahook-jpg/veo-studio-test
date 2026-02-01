@@ -1,11 +1,11 @@
 {
   "name": "Veo Studio – Test",
-  "short_name": "Veo Test",
-  "start_url": "/",
+  "short_name": "Veo Studio",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
