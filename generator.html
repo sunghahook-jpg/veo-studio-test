@@ -69,6 +69,15 @@ Design professional AI video prompts with Veo-style precision
 
   <label>ENVIRONMENT</label>
   <input id="environment" placeholder="Contoh: lorong gelap, cinematic lighting">
+<label>VOICE OVER SCRIPT</label>
+<textarea id="vo-script" placeholder="Tulis naskah suara di sini..."></textarea>
+
+<label>CONSISTENT DESCRIPTION</label>
+<input type="text" id="consistent-desc" placeholder="Contoh: Pria ramping, gerakan tenang">
+
+<label>UPLOAD IMAGE REFERENCE</label>
+<input type="file" id="image-upload" accept="image/*" style="margin-bottom: 10px;">
+<div id="image-preview"></div>
 
   <label>STYLE</label>
   <select id="style">
@@ -132,6 +141,28 @@ QUALITY: Veo 3.1, high detail, cinematic lighting`;
       alert('Prompt berhasil disalin');
     }
   </script>
+<script>
+// Fungsi untuk menggabungkan semua input jadi satu prompt
+function generateVeoPrompt() {
+    const subject = document.querySelector('input[placeholder*="adam"]').value;
+    const action = document.querySelector('input[placeholder*="berjalan"]').value;
+    const env = document.querySelector('input[placeholder*="lorong"]').value;
+    const vo = document.getElementById('vo-script').value;
+    const consist = document.getElementById('consistent-desc').value;
+
+    // Format prompt profesional
+    const result = `VIDEO PROMPT: [Subject: ${subject}] [Style: ${consist}] [Action: ${action}] [Environment: ${env}] [Audio Script: "${vo}"]`;
+
+    // Munculkan hasil (bisa diubah sesuai keinginan)
+    alert("Prompt Berhasil Dibuat:\n\n" + result);
+    
+    // Simpan ke clipboard otomatis agar tinggal paste di Veo
+    navigator.clipboard.writeText(result);
+}
+
+// Pastikan tombolmu menjalankan fungsi ini
+document.querySelector('button[class*="Generate"]').onclick = generateVeoPrompt;
+</script>
 
 </body>
 </html>
