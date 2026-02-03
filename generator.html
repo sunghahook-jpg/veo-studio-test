@@ -1,279 +1,154 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veo Studio – Generator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veo Studio – Simple</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: system-ui, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      margin-bottom: 5px;
-    }
-    label {
-      font-size: 12px;
-      opacity: 0.7;
-    }
-    input, textarea, select {
-      width: 100%;
-      background: #111;
-      color: #fff;
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 10px;
-      margin-top: 6px;
-      margin-bottom: 14px;
-      font-size: 14px;
-    }
-    button {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      background: #fff;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .result {
-      margin-top: 20px;
-      background: #0b0b0b;
-      border: 1px solid #333;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 13px;
-      white-space: pre-wrap;
-    }
-  </style>
+<style>
+body {
+  background:#000;
+  color:#fff;
+  font-family: system-ui, sans-serif;
+  padding:20px;
+}
+h1 { margin-bottom:5px; }
+p { color:#777; font-size:13px; margin-bottom:20px; }
+
+label {
+  font-size:12px;
+  opacity:0.7;
+}
+input, textarea, select {
+  width:100%;
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+  border-radius:8px;
+  padding:10px;
+  margin-top:6px;
+  margin-bottom:14px;
+  font-size:14px;
+}
+button {
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  background:#fff;
+  color:#000;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.result {
+  margin-top:20px;
+  background:#0b0b0b;
+  border:1px solid #333;
+  padding:14px;
+  border-radius:10px;
+  font-size:13px;
+  white-space:pre-wrap;
+}
+</style>
 </head>
 
 <body>
 
-  
-<h1>🎬 Veo Studio Pro</h1>
-<p class="subtitle">
-Design professional AI video prompts with Veo-style precision
-</p>
-  <label>SUBJECT</label>
-  <input id="subject" placeholder="Contoh: adam jabrig baokna leubeut">
+<h1>🎬 Veo Studio Simple</h1>
+<p>Generator prompt Veo fokus & rapi</p>
 
-  <label>ACTION</label>
-  <input id="action" placeholder="Contoh: berjalan pelan ke arah kamera">
+<label>SUBJECT</label>
+<input id="subject" placeholder="Contoh: pria botak memakai jaket hitam">
 
-  <label>ENVIRONMENT</label>
-  <input id="environment" placeholder="Contoh: lorong gelap, cinematic lighting">
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veo Studio Pro - Fixed</title>
-    <style>
-        body { background-color: #000; color: #fff; font-family: monospace; padding: 20px; }
-        label { display: block; margin-top: 15px; color: #888; font-size: 0.8em; }
-        input, textarea, select { 
-            width: 100%; background: #111; border: 1px solid #333; 
-            color: #fff; padding: 10px; border-radius: 5px; margin-top: 5px;
-        }
-        button { 
-            width: 100%; background: #fff; color: #000; padding: 15px; 
-            border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 5px;
-        }
-        #output { 
-            margin-top: 20px; background: #111; padding: 15px; 
-            border: 1px solid #333; white-space: pre-wrap; font-size: 0.9em; 
-        }
-        .header { font-size: 1.2em; font-weight: bold; margin-bottom: 5px; }
-        .sub-header { color: #666; font-size: 0.9em; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
+<label>VOICE OVER</label>
+<textarea id="voice" rows="2" placeholder="Contoh: Aku sadar… tidak semua harus dimiliki."></textarea>
 
-    <div class="header">Veo Studio Pro</div>
-    <div class="sub-header">Design professional AI video prompts with Veo-style precision</div>
+<label>KAMERA</label>
+<select id="camera">
+  <option>Static shot</option>
+  <option>Slow zoom in</option>
+  <option>Slow zoom out</option>
+  <option>Dolly forward</option>
+  <option>Dolly backward</option>
+  <option>Tracking left</option>
+  <option>Tracking right</option>
+  <option>Handheld cinematic</option>
+  <option>Orbit shot</option>
+</select>
 
-    <label>SUBJECT</label>
-    <input type="text" id="subject" placeholder="Buat seperti di gambar yang telah di upload">
+<label>ACTION</label>
+<input id="action" placeholder="Contoh: berjalan pelan ke arah kamera">
 
-    <label>ACTION</label>
-    <input type="text" id="action" placeholder="Loncat dan terbang dan tertawa senang">
+<label>ENVIRONMENT</label>
+<input id="environment" placeholder="Contoh: lorong gelap dengan cahaya neon">
 
-    <label>ENVIRONMENT</label>
-    <input type="text" id="environment" placeholder="Contoh: lorong gelap, cinematic lighting">
+<label>STYLE</label>
+<select id="style">
+  <option>Cinematic</option>
+  <option>Realistic</option>
+  <option>3D Animation</option>
+  <option>Anime</option>
+  <option>Photorealistic</option>
+</select>
 
-    <label>VOICE OVER SCRIPT (Wajib diisi jika ingin ada dialog)</label>
-    <textarea id="voice" rows="2" placeholder="Kamu lagi apa bro?"></textarea>
+<label>EFEK SUARA</label>
+<input id="sfx" placeholder="Contoh: langkah kaki bergema, angin pelan">
 
-    <label>CONSISTENT DESCRIPTION</label>
-    <input type="text" id="desc" placeholder="Buru buru">
+<button onclick="generatePrompt()">Generate Prompt</button>
 
-    <label>STYLE</label>
-    <select id="style">
-        <option>3D Animation</option>
-        <option>Realistic</option>
-        <option>Anime</option>
-        <option>Cinematic</option>
-    </select>
+<div id="output" class="result" style="display:none;"></div>
+<button onclick="copyPrompt()" id="copyBtn" style="display:none; margin-top:10px;">Copy Prompt</button>
 
-    <label>CAMERA</label>
-    <input type="text" id="camera" value="Static">
+<script>
+function generatePrompt() {
+  const subject = document.getElementById('subject').value || "-";
+  const voice = document.getElementById('voice').value;
+  const camera = document.getElementById('camera').value;
+  const action = document.getElementById('action').value || "-";
+  const environment = document.getElementById('environment').value || "-";
+  const style = document.getElementById('style').value;
+  const sfx = document.getElementById('sfx').value;
 
-    <button onclick="generatePrompt()">Generate Veo-Style Video Prompt</button>
-
-    <div id="output" style="display:none;"></div>
-    <button id="copyBtn" onclick="copyText()" style="display:none; margin-top:10px;">Copy Prompt</button>
-
-    <script>
-        function generatePrompt() {
-            // 1. Ambil data dari kotak input
-            var subject = document.getElementById('subject').value || "-";
-            var action = document.getElementById('action').value || "-";
-            var environment = document.getElementById('environment').value || "cinematic background";
-            var voice = document.getElementById('voice').value; // Ini yang sebelumnya ketinggalan
-            var desc = document.getElementById('desc').value;
-            var style = document.getElementById('style').value;
-            var camera = document.getElementById('camera').value || "Static, stable cinematic framing";
-
-            // 2. Susun format hasil (Prompt Engineering)
-            var finalPrompt = "STYLE: " + style + "\n" +
-                              "SUBJECT: " + subject + "\n" +
-                              "ACTION: " + action + "\n";
-
-            // LOGIKA TAMBAHAN: Hanya masukkan baris Voice Over jika ada isinya
-            if (voice && voice.trim() !== "") {
-                finalPrompt += "VOICE OVER: \"" + voice + "\"\n";
-                finalPrompt += "LIP SYNC: True (Match mouth movement to voice)\n";
-            }
-
-            finalPrompt += "ENVIRONMENT: " + environment + "\n" +
-                           "CAMERA: " + camera + "\n";
-            
-            if (desc) {
-                finalPrompt += "NOTE: " + desc + "\n";
-            }
-
-            // Tambahan standar Veo agar hasil bagus
-            finalPrompt += "MOTION RULES: smooth natural motion, no distortion, no jitter\n" +
-                           "DURATION: 5-7 seconds\n" +
-                           "QUALITY: Veo 3.1, high detail, cinematic lighting";
-
-            // 3. Tampilkan ke layar
-            var outDiv = document.getElementById('output');
-            outDiv.style.display = 'block';
-            outDiv.innerText = finalPrompt;
-            
-            document.getElementById('copyBtn').style.display = 'block';
-        }
-
-        function copyText() {
-            var text = document.getElementById('output').innerText;
-            navigator.clipboard.writeText(text).then(function() {
-                alert("Prompt berhasil disalin!");
-            });
-        }
-    </script>
-
-</body>
-</html>
-
-
-<label>CONSISTENT DESCRIPTION</label>
-<input type="text" id="consistent-desc" placeholder="Contoh: Pria ramping, gerakan tenang">
-
-<label>UPLOAD IMAGE REFERENCE</label>
-<input type="file" id="image-upload" accept="image/*" style="margin-bottom: 10px;">
-<div id="image-preview"></div>
-
-  <label>STYLE</label>
-  <select id="style">
-    <option>Cinematic 4K</option>
-    <option>Photorealistic</option>
-    <option>Anime Style</option>
-    <option>3D Animation</option>
-    <option>Stop Motion</option>
-  </select>
-
-  <label>CAMERA</label>
-  <select id="camera">
-    <option>Static</option>
-    <option>Slow Zoom In</option>
-    <option>Dolly Forward</option>
-    <option>Tracking Shot</option>
-  </select>
-
-  <button onclick="generatePrompt()">
-Generate Veo-Style Video Prompt
-</button>
-  <div id="output" class="result" style="display:none;"></div>
-
-  <button id="copyBtn" onclick="copyPrompt()" style="display:none;">
-    Copy Prompt
-  </button>
-
-  <script>
-    function generatePrompt() {
-      const subject = document.getElementById('subject').value || 'A mysterious character';
-      const action = document.getElementById('action').value || 'standing still with subtle motion';
-      const environment = document.getElementById('environment').value || 'cinematic background';
-      const style = document.getElementById('style').value;
-      const camera = document.getElementById('camera').value;
-
-      const prompt = 
+  let prompt =
 `STYLE: ${style}
 
 SUBJECT: ${subject}
 
 ACTION: ${action}
 
-ENVIRONMENT: ${environment}
+CAMERA: ${camera}, smooth cinematic motion
 
-CAMERA: ${camera}, stable cinematic framing
+ENVIRONMENT: ${environment}`;
 
-MOTION RULES: smooth natural motion, no distortion, no jitter
+  if (voice.trim() !== "") {
+    prompt += `
 
+VOICE OVER: "${voice}"
+LIP SYNC: natural, accurate`;
+  }
+
+  if (sfx.trim() !== "") {
+    prompt += `
+
+SOUND EFFECTS: ${sfx}`;
+  }
+
+  prompt += `
+
+MOTION RULES: smooth, no jitter, no distortion
 DURATION: 5–7 seconds
+QUALITY: Veo 3.1, cinematic lighting, high detail`;
 
-QUALITY: Veo 3.1, high detail, cinematic lighting`;
-
-      document.getElementById('output').style.display = 'block';
-      document.getElementById('copyBtn').style.display = 'block';
-      document.getElementById('output').innerText = prompt;
-    }
-
-    function copyPrompt() {
-      const text = document.getElementById('output').innerText;
-      navigator.clipboard.writeText(text);
-      alert('Prompt berhasil disalin');
-    }
-  </script>
-<script>
-// Fungsi untuk menggabungkan semua input jadi satu prompt
-function generateVeoPrompt() {
-    const subject = document.querySelector('input[placeholder*="adam"]').value;
-    const action = document.querySelector('input[placeholder*="berjalan"]').value;
-    const env = document.querySelector('input[placeholder*="lorong"]').value;
-    const vo = document.getElementById('vo-script').value;
-    const consist = document.getElementById('consistent-desc').value;
-
-    // Format prompt profesional
-    const result = `VIDEO PROMPT: [Subject: ${subject}] [Style: ${consist}] [Action: ${action}] [Environment: ${env}] [Audio Script: "${vo}"]`;
-
-    // Munculkan hasil (bisa diubah sesuai keinginan)
-    alert("Prompt Berhasil Dibuat:\n\n" + result);
-    
-    // Simpan ke clipboard otomatis agar tinggal paste di Veo
-    navigator.clipboard.writeText(result);
+  const out = document.getElementById('output');
+  out.style.display = "block";
+  out.innerText = prompt;
+  document.getElementById('copyBtn').style.display = "block";
 }
 
-// Pastikan tombolmu menjalankan fungsi ini
-document.querySelector('button[class*="Generate"]').onclick = generateVeoPrompt;
+function copyPrompt() {
+  navigator.clipboard.writeText(document.getElementById('output').innerText);
+  alert("Prompt berhasil disalin!");
+}
 </script>
 
 </body>
